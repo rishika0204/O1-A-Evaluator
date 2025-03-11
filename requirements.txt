@@ -1,0 +1,6 @@
+spaCy version: 3.8.4
+FastAPI version: 0.115.11
+Torch version: 2.6.0
+Transformers version: 4.49.0
+PyPDF2 version: 3.0.1
+Uvicorn version: 0.34.0
