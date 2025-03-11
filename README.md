@@ -23,7 +23,8 @@
    ```bash
    uvicorn main:app --reload
    ```
-   Access the API at: `http://127.0.0.1:8000`
+   Access the API at: `http://127.0.0.1:8000`  
+   **Note:** For interactive API documentation, navigate to `http://127.0.0.1:8000/docs`.
 
 ## Usage
 To use **O1A Insight**, follow these steps:
@@ -46,15 +47,15 @@ To use **O1A Insight**, follow these steps:
 
 - **Text Extraction (`cv_processor.py`):** Utilizes PyPDF2 for extracting text from PDF files, ensuring all content from a CV is accessible for analysis.
 - **NLP Processing (`nlp_extractor.py`):**
-  - **spaCy:** Employs spaCy for text preprocessing, including tokenization and sentence boundary detection, crucial for structuring CV text into analyzable segments.
-  - **Transformers:** Uses the `distilbert-base-uncased-mnli` model for performing semantic similarity checks between extracted text and predefined criteria templates. This involves measuring the entailment probability that a sentence from the CV matches criteria such as having received awards or being part of elite memberships.
-- **Evidence Evaluation (`evaluator.py`):** Applies a heuristic based on scores derived from NLP analysis to compute a qualification rating, integrating the evidence strength across multiple criteria to deliver an overall assessment.
+  - **spaCy:** Employs spaCy for text preprocessing, including tokenization and sentence boundary detection, which structures CV text into analyzable segments.
+  - **Transformers:** Uses the `distilbert-base-uncased-mnli` model to perform semantic similarity and entailment checks between extracted text and predefined criteria templates. This process assesses how well each sentence aligns with specific criteria (e.g., receiving awards, membership in elite organizations).
+- **Evidence Evaluation (`evaluator.py`):** Applies a heuristic based on the strength of evidence detected by the NLP analysis. It aggregates scores across multiple criteria to generate an overall qualification rating (High, Medium, Low).
 
 ### Criteria Assessment Mechanism
 The application assesses each criterion by:
-- Identifying key phrases and concepts that match the O-1A requirements using advanced NLP.
-- Scoring each criterion based on the presence and relevance of evidence in the CV.
-- Aggregating these scores to render a decision on the potential eligibility of the applicant for the O-1A visa.
+- Identifying key phrases and concepts that match the O-1A requirements using advanced NLP techniques.
+- Scoring each criterion based on the presence and relevance of evidence within the CV.
+- Aggregating these scores to render an overall assessment of the applicant’s potential eligibility for the O-1A visa.
 
 ## Contributions
 Contributions are welcome! Please fork the repository and submit pull requests with your suggested changes.
